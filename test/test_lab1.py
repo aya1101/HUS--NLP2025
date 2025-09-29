@@ -1,13 +1,14 @@
 import sys
 import os
+from src.core.dataset_loaders import load_raw_text_data
+from src.preprocessing.simple_tokenizer import SimpleTokenizer
+from src.preprocessing.regex_tokenizer import RegexTokenizer    
 sys.stdout.reconfigure(encoding='utf-8')
 # current_dir = os.path.dirname(os.path.abspath(__file__))
 # root = os.path.dirname(current_dir)
 # sys.path.append(root)
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.core.dataset_loaders import load_raw_text_data
-from src.preprocessing.simple_tokenizer import SimpleTokenizer
-from src.preprocessing.regex_tokenizer import RegexTokenizer    
+
 dataset_path = "UD_English-EWT/en_ewt-ud-train.txt"
 raw_text = load_raw_text_data(dataset_path)
 sample_text = raw_text[:137] 

@@ -7,14 +7,6 @@ class Tokenizer(ABC):
 		pass
 	
 class Vectorizer(ABC):
-	@abstractmethod
-	#def fit(self, corpus: list[str]):
-        
-	def transform(self, documents:list[str])-> list[list[int]]:
-		pass
-		
-    #def fit_transform(self, corpus: list[str]) -> list[list[int]]:
-	#	pass
 
 	@abstractmethod
 	def fit(self, corpus: list[str]):
