@@ -82,6 +82,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.history
+history/
 
 # Spyder project settings
 .spyderproject
@@ -101,3 +103,15 @@ venv.bak/
 *.swp
 *.swo
 *~
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# VS Code history
+.history/
+
+# Spark logs
+*.log
+spark-warehouse/

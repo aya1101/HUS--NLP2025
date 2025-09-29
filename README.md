@@ -23,16 +23,11 @@ Nguyễn Thùy Trang - 22000128
   ```
 - Kết quả được ghi vào thư mục `results/` trong thư mục gốc.
 
-##  Giải thích các kết quả thu được
-- Kết quả in ra gồm:
-  - Đoạn văn bản mẫu được lấy từ bộ dữ liệu.
-  - Kết quả tokenization bằng các tokenizer khác nhau (SimpleTokenizer, RegexTokenizer).
-  - So sánh số lượng và chất lượng token giữa các phương pháp.
+##  Giải thích các kết quả thu được và nhận xét:
+- Giải thích kết quả thu được và nhận xét của các lab được tổng hợp trong `results/Notes.md`
 
 ### Ví dụ kết quả thực tế
 Toàn bộ kết quả test của các lab được lưu trong trong folder `results/`.
-- **Nhận xét:**
-  - Nhận xét của các lab được tổng hợp trong `results/Notes.md`
 
 ## Khó khăn gặp phải và cách giải quyết
 - Lỗi đường dẫn ;-;
