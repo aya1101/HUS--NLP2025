@@ -1,0 +1,41 @@
+[0m[[0m[31merror[0m] [0m[0mjava.lang.RuntimeException: Expected `root / scalaVersion` to be 2.13.16 or later, but found 2.13.12.[0m
+[0m[[0m[31merror[0m] [0m[0mTo support backwards-only binary compatibility (SIP-51), the Scala 2.13 compiler[0m
+[0m[[0m[31merror[0m] [0m[0mshould not be older than scala-library on the dependency classpath.[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0mUpgrade the `scalaVersion` to fix the build. If upgrading the Scala compiler version is[0m
+[0m[[0m[31merror[0m] [0m[0mnot possible (for example due to a regression in the compiler or a missing dependency),[0m
+[0m[[0m[31merror[0m] [0m[0mthis error can be demoted by setting `allowUnsafeScalaLibUpgrade := true`.[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0mSee `root / evicted` to know why scala-library 2.13.16 is getting pulled in.[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.sys.package$.error(package.scala:30)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$scalaInstanceFromUpdate$15(Defaults.scala:1248)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$scalaInstanceFromUpdate$15$adapted(Defaults.scala:1223)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator.foreach(Iterator.scala:943)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator.foreach$(Iterator.scala:943)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$scalaInstanceFromUpdate$1(Defaults.scala:1223)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function1.$anonfun$compose$1(Function1.scala:49)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.$tilde$greater.$anonfun$$u2219$1(TypeFunctions.scala:63)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.std.Transform$$anon$4.work(Transform.scala:69)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$2(Execute.scala:283)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.util.ErrorHandling$.wideConvert(ErrorHandling.scala:24)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.work(Execute.scala:292)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Execute.$anonfun$submit$1(Execute.scala:283)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.ConcurrentRestrictions$$anon$4.$anonfun$submitValid$1(ConcurrentRestrictions.scala:265)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.CompletionService$$anon$2.call(CompletionService.scala:65)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.Thread.run(Thread.java:840)[0m
+[0m[[0m[31merror[0m] [0m[0m([31mscalaInstance[0m) Expected `root / scalaVersion` to be 2.13.16 or later, but found 2.13.12.[0m
+[0m[[0m[31merror[0m] [0m[0mTo support backwards-only binary compatibility (SIP-51), the Scala 2.13 compiler[0m
+[0m[[0m[31merror[0m] [0m[0mshould not be older than scala-library on the dependency classpath.[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0mUpgrade the `scalaVersion` to fix the build. If upgrading the Scala compiler version is[0m
+[0m[[0m[31merror[0m] [0m[0mnot possible (for example due to a regression in the compiler or a missing dependency),[0m
+[0m[[0m[31merror[0m] [0m[0mthis error can be demoted by setting `allowUnsafeScalaLibUpgrade := true`.[0m
+[0m[[0m[31merror[0m] [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0mSee `root / evicted` to know why scala-library 2.13.16 is getting pulled in.[0m

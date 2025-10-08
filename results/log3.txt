@@ -1,0 +1,111 @@
+LAB 3 - Nguyen Thuy Trang - 22000128
+================================================================================
+
+CONFIGURATION:
+----------------------------------------
+Data source: data/c4-train.00000-of-01024-30K.json.gz
+Document limit: 2,000
+HashingTF features: 20,000
+Processing start time: 2025-10-09 02:19:31
+Processing end time: 2025-10-09 02:20:53
+Total duration: 81.52 seconds
+
+PIPELINE STAGES:
+----------------------------------------
+1. RegexTokenizer - Text tokenization into individual words
+2. StopWordsRemover - Remove common low-information words
+3. HashingTF - Transform text into term frequency vectors
+4. IDF - Apply inverse document frequency weighting
+
+PERFORMANCE METRICS:
+----------------------------------------
+Pipeline fitting: 2.45 seconds
+Data transformation: 1.05 seconds
+Vocabulary analysis: 0.39 seconds
+Vector search: 10.83 seconds
+Total processing time: 14.72 seconds
+
+VOCABULARY ANALYSIS:
+----------------------------------------
+Actual vocabulary size: 39,585 unique terms
+HashingTF feature space: 20,000 dimensions
+Hash collision rate: ~49.5%
+
+USER INPUT AND VECTOR SEARCH:
+==================================================
+Input Query Text:
+"Beginners BBQ Class Taking Place in Missoula!\nDo you want to get better at making delicious BBQ? You will have the opportunity, put this on your calendar now. Thursday, September 22nd join World Class BBQ Champion, Tony Balay from Lonestar Smoke Rangers. He will be teaching a beginner level class for everyone who wants to get better with their culinary skills.\nHe will teach you everything you need to know to compete in a KCBS BBQ competition, including techniques, recipes, timelines, meat selection and trimming, plus smoker and fire information.\nThe cost to be in the class is $35 per person, and for spectators it is free. Included in the cost will be either a t-shirt or apron and you will be tasting samples of each meat that is prepared."
+
+Search Performance:
+- Search duration: 10.83 seconds
+- Documents compared: 100
+- Results returned: 5
+
+SEARCH RESULTS (Ranked by Similarity):
+--------------------------------------------------
+Rank 1:
+Similarity Score: 0.9538
+Document Text: Beginners BBQ Class Taking Place in Missoula!
+Do you want to get better at making delicious BBQ? You will have the opportunity, put this on your calendar now. Thursday, September 22nd join World Class...
+------------------------------
+Rank 2:
+Similarity Score: 0.0602
+Document Text: Movers & Moving Companies in Randallsville, New York for every moving service .: Movers MAX :.
+Movers MAX Movers Directory is your one-stop source for moving resources. Research your move before makin...
+------------------------------
+Rank 3:
+Similarity Score: 0.0511
+Document Text: Learn the fundamentals of Flash as we guide you through this comprehensive introduction to the leading interactive-design program. We will show you how to draw and animate your own graphics. This is t...
+------------------------------
+Rank 4:
+Similarity Score: 0.0500
+Document Text: Are going to be able to understand how you might be able to take these things go that much more further into the life that you with actually to be able live? This is the case and we can be able help y...
+------------------------------
+Rank 5:
+Similarity Score: 0.0395
+Document Text: This topic contains 1 reply, has 2 voices. Last updated by Raam Dev 4 years, 11 months ago.
+I need a solution for a site I’m developing with S2 Members Pro, the issue is the clients run a chain of sho...
+------------------------------
+
+SAMPLE FEATURE VECTORS:
+----------------------------------------
+Document 1:
+Text: Beginners BBQ Class Taking Place in Missoula!
+Do you want to get better at making delicious BBQ? You will have the oppor...
+Vector size: 20000
+Non-zero elements: 62
+Top feature indices: [264, 298, 673, 717, 829, 1271, 1466, 1499]
+Top feature values: [15.5513, 2.7339, 3.2576, 3.0475, 4.2002, 5.8096, 3.6696, 2.4715]
+----------------------------------------
+Document 2:
+Text: Discussion in 'Mac OS X Lion (10.7)' started by axboi87, Jan 20, 2012.
+I've got a 500gb internal drive and a 240gb SSD.
+...
+Vector size: 20000
+Non-zero elements: 111
+Top feature indices: [406, 643, 651, 1023, 1349, 1695, 1845, 1850]
+Top feature values: [5.6555, 5.992, 5.8096, 2.2215, 15.005, 2.5775, 26.0112, 2.6247]
+----------------------------------------
+Document 3:
+Text: Foil plaid lycra and spandex shortall with metallic slinky insets. Attached metallic elastic belt with O-ring. Headband ...
+Vector size: 20000
+Non-zero elements: 23
+Top feature indices: [55, 110, 717, 750, 1470, 2902, 3115, 3344]
+Top feature values: [10.0729, 5.2035, 3.0475, 1.7209, 5.4042, 4.1674, 2.2639, 1.7521]
+----------------------------------------
+Document 4:
+Text: How many backlinks per day for new site?
+Discussion in 'Black Hat SEO' started by Omoplata, Dec 3, 2010.
+1) for a newly ...
+Vector size: 20000
+Non-zero elements: 80
+Top feature indices: [298, 585, 591, 761, 790, 1257, 1675, 2270]
+Top feature values: [5.4677, 3.4292, 5.2035, 3.4743, 4.1357, 6.9083, 4.4659, 5.2988]
+----------------------------------------
+Document 5:
+Text: The Denver Board of Education opened the 2017-18 school year with an update on projects that include new construction, u...
+Vector size: 20000
+Non-zero elements: 67
+Top feature indices: [157, 298, 468, 477, 528, 585, 717, 722]
+Top feature values: [5.6785, 2.7339, 1.911, 19.8494, 6.885, 1.1431, 3.0475, 4.3433]
+----------------------------------------
