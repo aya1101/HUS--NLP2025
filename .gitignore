@@ -123,8 +123,6 @@ project/project/
 
 # Data files (large datasets)
 data/
-*.gz
-*.json.gz
 
 # OS generated files
 .DS_Store
