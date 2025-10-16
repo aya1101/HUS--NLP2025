@@ -1,0 +1,174 @@
+#!/usr/bin/env python3
+"""Test script for Lab4: WordEmbedder + DocumentEmbedder
+
+This script will:
+ - instantiate WordEmbedder with a gensim model name
+ - retrieve the vector for 'king'
+ - compute similarity between 'king' and 'queen', and 'king' and 'man'
+ - print 10 most similar words to 'computer'
+ - embed the sentence "The queen rules the country." and print the document vector
+
+Run from project root:
+    python test/lab4_test.py
+"""
+
+import sys
+import os
+
+# Ensure project root is on sys.path so `from src...` imports work
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+
+from src.representations.word_embedder import WordEmbedder
+from src.representations.document_embedder import DocumentEmbedder
+import numpy as np
+
+
+def pretty(arr, n=8):
+    arr = np.asarray(arr)
+    return "[" + ", ".join(f"{float(x):.6f}" for x in arr[:n]) + (", ...]" if arr.size > n else "]")
+
+
+class Tee:
+    """Simple tee to duplicate prints to both stdout and a file."""
+    def __init__(self, filepath):
+        self.filepath = filepath
+        self._file = None
+        self._stdout = None
+
+    def __enter__(self):
+        import sys
+        os.makedirs(os.path.dirname(self.filepath), exist_ok=True)
+        self._file = open(self.filepath, "w", encoding="utf-8")
+        self._stdout = sys.stdout
+        sys.stdout = self
+        return self
+
+    def write(self, data):
+        # write to both original stdout and file
+        if self._stdout:
+            self._stdout.write(data)
+        if self._file:
+            self._file.write(data)
+            # try to mimic line-buffering: flush if newline present
+            if "\n" in data:
+                try:
+                    self._file.flush()
+                except Exception:
+                    pass
+
+    def flush(self):
+        if self._stdout:
+            self._stdout.flush()
+        if self._file:
+            self._file.flush()
+
+    def __exit__(self, exc_type, exc, tb):
+        import sys
+        sys.stdout = self._stdout
+        if self._file:
+            self._file.close()
+
+def main():
+    model_name = "glove-wiki-gigaword-50"
+    print(f"Loading embedding model: {model_name}")
+    # Save outputs to results/log4.txt as requested
+    log_path = os.path.join(ROOT, "results", "log4.txt")
+    # Wrap the whole run in Tee so every print is duplicated to file
+    with Tee(log_path):
+        import time
+
+        # 0) load model and time it
+        try:
+            t0 = time.perf_counter()
+            we = WordEmbedder(model_name)
+            t1 = time.perf_counter()
+        except Exception as e:
+            print(f"Không thể tải model {model_name}: {e}")
+            return
+
+        print("Model loaded.")
+        print(f"Thời gian tải model: {(t1 - t0):.3f} s")
+
+        # 1) Vector cho 'king' — save full vector to file
+        try:
+            king_vec = we.get_vector("king")
+            # save full vector
+            king_path = os.path.join(ROOT, "results", "king_vector.npy")
+            os.makedirs(os.path.dirname(king_path), exist_ok=True)
+            np.save(king_path, np.asarray(king_vec))
+            print(f"Vector cho 'king' đã lưu vào: {king_path}")
+            print("Kích thước vector:", len(king_vec))
+        except KeyError:
+            print("Từ 'king' không có trong vốn từ của mô hình.")
+
+        # 2) Similarities
+        try:
+            sim_k_q = we.model.similarity("king", "queen")
+            sim_k_m = we.model.similarity("king", "man")
+            print(f"\nSimilarity('king','queen') = {sim_k_q:.4f}")
+            print(f"Similarity('king','man') = {sim_k_m:.4f}")
+        except Exception as e:
+            # fallback: use cosine similarity via vectors
+            print("Không thể gọi model.similarity(), thử tính bằng vector nếu có...")
+            try:
+                qv = we.get_vector("queen")
+                mv = we.get_vector("man")
+                import numpy as _np
+                def cos(a,b):
+                    a = _np.asarray(a, dtype=float)
+                    b = _np.asarray(b, dtype=float)
+                    return float(_np.dot(a,b) / (_np.linalg.norm(a)*_np.linalg.norm(b)))
+                print(f"Similarity('king','queen') [cosine] = {cos(king_vec,qv):.4f}")
+                print(f"Similarity('king','man') [cosine] = {cos(king_vec,mv):.4f}")
+            except Exception as e2:
+                print("Không thể tính similarity bằng vector:", e2)
+
+        # 3) Most similar to 'computer' (time this op) — save top-10 words + vectors
+        try:
+            import time as _time
+            t_start = _time.perf_counter()
+            top = we.model.most_similar("computer", topn=10)
+            t_end = _time.perf_counter()
+            print(f"Thời gian tìm most_similar: {(t_end - t_start):.4f} s")
+
+            # collect words and vectors
+            words = [w for w, _ in top]
+            scores = [s for _, s in top]
+            vectors = [we.get_vector(w) for w in words]
+
+            # save human-readable and numpy
+            comp_txt = os.path.join(ROOT, "results", "computer_top10.txt")
+            comp_npy = os.path.join(ROOT, "results", "computer_top10.npy")
+            with open(comp_txt, "w", encoding="utf-8") as fh:
+                fh.write("word\tscore\n")
+                for w, s in zip(words, scores):
+                    fh.write(f"{w}\t{s:.6f}\n")
+
+            np.save(comp_npy, np.asarray(vectors))
+            print(f"Top-10 words và vectors đã lưu vào: {comp_txt}, {comp_npy}")
+        except Exception as e:
+            print("Lỗi khi gọi most_similar:", e)
+
+        # 4) Embed a sentence (time this op)
+        de = DocumentEmbedder(we)
+        sentence = "The queen rules the country."
+        print(f"\nEmbedding câu: \"{sentence}\"")
+        try:
+            import time as _time
+            t0 = _time.perf_counter()
+            doc_vec = de.embed(sentence)
+            t1 = _time.perf_counter()
+            # save full document vector
+            doc_path = os.path.join(ROOT, "results", "doc_vector.npy")
+            np.save(doc_path, np.asarray(doc_vec))
+            print(f"Document vector đã lưu vào: {doc_path}")
+            print("Document vector shape:", doc_vec.shape)
+            print(f"Thời gian embed câu: {(t1 - t0):.6f} s")
+        except Exception as e:
+            print("Lỗi khi embed câu:", e)
+
+
+if __name__ == '__main__':
+    main()
