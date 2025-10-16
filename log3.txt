@@ -1,0 +1,33 @@
+LOG3 - INPUT TEXT AND VECTOR SEARCH RESULTS
+Nguyen Thuy Trang - 22000128
+============================================================
+
+Timestamp: 2025-10-09 02:08:42
+
+USER INPUT:
+--------------------
+Query: Beginners BBQ Class Taking Place in Missoula!\nDo you want to get better at making delicious BBQ? You will have the opportunity, put this on your calendar now. Thursday, September 22nd join World Class BBQ Champion, Tony Balay from Lonestar Smoke Rangers. He will be teaching a beginner level class for everyone who wants to get better with their culinary skills.\nHe will teach you everything you need to know to compete in a KCBS BBQ competition, including techniques, recipes, timelines, meat selection and trimming, plus smoker and fire information.\nThe cost to be in the class is $35 per person, and for spectators it is free. Included in the cost will be either a t-shirt or apron and you will be tasting samples of each meat that is prepared.
+
+VECTOR SEARCH RESULTS:
+-------------------------
+Search completed in: 11.49 seconds
+Number of results: 5
+
+1. Similarity: 0.9538
+   Text: Beginners BBQ Class Taking Place in Missoula!
+Do you want to get better at making delicious BBQ? You...
+
+2. Similarity: 0.0602
+   Text: Movers & Moving Companies in Randallsville, New York for every moving service .: Movers MAX :.
+Mover...
+
+3. Similarity: 0.0511
+   Text: Learn the fundamentals of Flash as we guide you through this comprehensive introduction to the leadi...
+
+4. Similarity: 0.0500
+   Text: Are going to be able to understand how you might be able to take these things go that much more furt...
+
+5. Similarity: 0.0395
+   Text: This topic contains 1 reply, has 2 voices. Last updated by Raam Dev 4 years, 11 months ago.
+I need a...
+

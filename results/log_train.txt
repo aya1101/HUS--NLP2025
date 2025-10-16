@@ -1,0 +1,30 @@
+=== GENSIM TRAIN ===
+Vocab size (gensim): 33
+Most similar to computer: [('he', 0.2680935263633728), ('technology', 0.2050136923789978), ('language', 0.18346183001995087), ('queen', 0.16944658756256104), ('run', 0.11666244268417358)]
+
+=== SPARK TRAIN ===
+returncode: 0
+stdout:
+Reading input: D:\1. Studying\NLP\HW1_1809_NguyenThuyTrang\test\data\sample.jsonl
+Records after tokenization: 5
+Training Word2Vec...
+Skipping model.save() because --no-save was set
+Could not write sample vectors: Object of type DenseVector is not JSON serializable
+Done
+SUCCESS: The process with PID 11924 (child process of PID 25296) has been terminated.
+SUCCESS: The process with PID 25296 (child process of PID 20828) has been terminated.
+SUCCESS: The process with PID 20828 (child process of PID 10576) has been terminated.
+
+stderr:
+WARNING: Using incubator modules: jdk.incubator.vector
+25/10/16 20:52:35 WARN Shell: Did not find winutils.exe: java.io.FileNotFoundException: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset. -see https://cwiki.apache.org/confluence/display/HADOOP2/WindowsProblems
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+25/10/16 20:52:38 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+
+[Stage 0:>                                                          (0 + 1) / 1]
+
+                                                                                
+25/10/16 20:52:53 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+

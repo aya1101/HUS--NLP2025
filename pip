@@ -1,0 +1,6 @@
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+      257       1     257      11600  cons1     197609 22:46:50 /usr/bin/bash
+      395       1     395      19372  ?         197609 23:07:04 /usr/bin/sh
+      405     257     405      16032  cons1     197609 23:26:43 /usr/bin/PS
+      200       1     200       6268  cons0     197609 20:42:09 /usr/bin/bash
+      396     395     395      11504  ?         197609 23:07:04 /c/Users/Admin/AppData/Local/Programs/Microsoft VS Code/Code
