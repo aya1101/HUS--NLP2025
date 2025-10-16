@@ -12,18 +12,20 @@ pip install -r requirements.txt
 **Bước 2: Cấu trúc dự án Lab 4**
 ```
 src/
+├── core/
+│   ├── Lab4_22000128_Nguyễn_Thùy_Trang.ipynb # Pretrainedd model -- Task 1&2
 ├── representations/
-│   ├── word_embedder.py        # Wrapper cho gensim pretrained models
-│   └── document_embedder.py    # Document embedding (mean of word vectors)
+│   ├── word_embedder.py        # Wrapper cho gensim pretrained models -- Task 3
+│   └── document_embedder.py    # Document embedding (mean of word vectors) -- Task 3
 └── spark/
-    └── lab4_task4_pyspark.py   # PySpark MLlib Word2Vec training
+    └── lab4_task4_pyspark.py   # PySpark MLlib Word2Vec training -- Task 4
 
 test/lab4/
-├── lab4_test.py                      # Test gensim pretrained model (GloVe)
-├── run_word2vec_tests.py             # Train & test gensim local Word2Vec
+├── lab4_test.py                      # Test gensim pretrained model (GloVe) 
+├── run_word2vec_tests.py             # Train & test gensim local Word2Vec --Task 3
 ├── lab4_run_all_tests.py             # Chạy tất cả tests, lưu log4.txt
-├── visualize_embeddings.py           # Visualize pretrained embeddings (2D+3D)
-└── visualize_trained_embeddings.py   # Visualize trained model (2D+3D, by category)
+├── visualize_embeddings.py           # Visualize pretrained embeddings (2D+3D) -- Task 5
+└── visualize_trained_embeddings.py   # Visualize trained model (2D+3D, by category) --- Task 5
 
 data/
 └── c4-train.00000-of-01024-30K.json  # C4 dataset (30,000 documents)
