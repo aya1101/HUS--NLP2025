@@ -1,0 +1,11 @@
+Model training time: 0.0020 seconds
+Model prediction time: 0.0015 seconds
+Evaluation metrics:
+accuracy: 0.500
+precision: 0.250
+recall: 0.500
+f1: 0.333
+
+Confusion Matrix:
+[[0 1]
+ [0 1]]

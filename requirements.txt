@@ -15,3 +15,5 @@ tensorflow
 datasets
 evaluate
 conllu
+huggingface-hub
+tqdm

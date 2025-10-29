@@ -1,0 +1,53 @@
+LAB 5 - TASK 4: ADVANCED SENTIMENT ANALYSIS WITH PYSPARK
+================================================================================
+
+Feature Extraction Method: Word2Vec (Spark ML)
+Classifier: Logistic Regression
+
+[1/6] Loading data...
+Total samples: 11927
+  Class 1: 2398 samples
+  Class 2: 7740 samples
+  Class 0: 1789 samples
+
+[2/6] Advanced preprocessing...
+Samples after preprocessing: 11927
+Preprocessing time: 0.2537s
+
+[3/6] Splitting data (80/20 train/test)...
+Train set: 9606 samples
+Test set: 2321 samples
+
+[4/6] Building pipeline...
+Using Word2Vec embeddings (vector_size=100, window=5, minCount=2)
+
+[5/6] Training model...
+Training time: 6.9000s
+
+[6/6] Evaluating model...
+Evaluation time: 1.5902s
+
+================================================================================
+EVALUATION RESULTS
+================================================================================
+Accuracy:  0.6682
+Precision: 0.5583
+Recall:    0.6682
+F1 Score:  0.5726
+
+Confusion Matrix:
+               Predicted
+             Class 0  Class 1  Class 2
+Actual Class 0:      0      24     320
+Actual Class 1:      2      88     389
+Actual Class 2:      0      35    1463
+
+================================================================================
+PERFORMANCE SUMMARY
+================================================================================
+Total processing time: 8.7439s
+  - Preprocessing: 0.2537s
+  - Training: 6.9000s
+  - Evaluation: 1.5902s
+
+

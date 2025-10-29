@@ -1,0 +1,14 @@
+ADDITIONAL TEST: train on sent_train.csv, evaluate on sent_valid.csv
+Train samples: 9543; Validation samples: 2388
+Model training time: 30.5046 seconds
+Model prediction time: 1.6729 seconds
+Evaluation metrics:
+accuracy: 0.834
+precision: 0.793
+recall: 0.738
+f1: 0.762
+
+Confusion Matrix:
+[[ 206   36  105]
+ [  26  328  121]
+ [  42   66 1458]]
