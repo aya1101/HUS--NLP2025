@@ -14,10 +14,7 @@ keras
 tensorflow
 datasets
 evaluate
-<<<<<<< HEAD
 conllu
 huggingface-hub
 tqdm
-=======
 conllu
->>>>>>> 993850ffcbea559a99fb5eedff876097bb2fad0d

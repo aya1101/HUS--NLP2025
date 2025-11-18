@@ -122,11 +122,7 @@ project/target/
 project/project/
 
 # Data files (large datasets)
-<<<<<<< HEAD
 data/
-=======
-#data/
->>>>>>> 993850ffcbea559a99fb5eedff876097bb2fad0d
 
 # OS generated files
 .DS_Store

@@ -1,0 +1,1 @@
+python -m git_filter_repo --strip-blobs-bigger-than 50M

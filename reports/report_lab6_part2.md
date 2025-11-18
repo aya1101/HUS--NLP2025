@@ -1,7 +1,5 @@
 # Lab 6 - Part 2: So sánh các phương pháp phân loại Intent
 
-Trong bài lab này, chúng tôi đã thực hiện và so sánh 4 phương pháp khác nhau để phân loại intent từ dữ liệu HWU (Harbin Institute of Technology and University of Cambridge) dataset.
-
 ## Source code
 - **File thực thi**: `src\lab6\lab6_part2.ipynb`  
 - **Cấu trúc notebook**:
@@ -120,13 +118,8 @@ Mỗi task được thực hiện tuần tự và kết quả được hiển th
 
 ## Nhận xét tổng quan:
 
-**TF-IDF + Logistic Regression** thể hiện reliability cao nhất: strong performance với keyword-based queries, reasonable uncertainty với unfamiliar input. N-gram features và linear decision boundary tạo interpretable và predictable behavior.
-
-**Word2Vec + Dense NN** cho moderate performance. Averaging operation mất spatial information nhưng vẫn preserve semantic similarity. Không có clear advantage so với TF-IDF baseline.
-
-**Pre-trained Word2Vec + LSTM** nghiêm trọng underperform do domain mismatch. Google News embeddings không optimize cho conversational intent classification. Frozen weights không adapt được với task-specific patterns.
-
-**Embedding từ đầu + LSTM** có accuracy cao nhưng dangerous overconfidence. Model học được training patterns tốt nhưng không generalize safely cho out-of-distribution input. High-confidence wrong predictions rất nguy hiểm trong production systems.
+**TF-IDF + Logistic Regression**  performance tốt và tương đối ổn định với truy vấn dựa trên keyword, unfamiliar input.
+**Embedding từ đầu + LSTM** có accuracy cao nhưng dangerous overconfidence. Model học được training patterns tốt nhưng không generalize safely cho out-of-distribution input. 
 
 ## Nhận xét các phương pháp
 
@@ -182,7 +175,7 @@ Mỗi task được thực hiện tuần tự và kết quả được hiển th
 
 ## Kết luận và nhận xét chung
 
-- Qua thực nghiệm, Word2Vec averaging + Dense NN cho kết quả tốt nhất với balance giữa performance và complexity. TF-IDF baseline vẫn rất competitive và nên được xem xét cho production systems cần tốc độ.
+- Qua thực nghiệm, Word2Vec averaging + Dense NN cho kết quả tốt nhất với balance giữa performance và complexity. 
 
 - LSTM hoạt động hiệu quả với câu phức tạp, long dependencies, cấu trúc ngữ pháp. TF-IDF phân loại tốt với câu đơn giản, từ khóa rõ ràng. Word2Vec averaging yếu nhất do mất thông tin structural.
 
