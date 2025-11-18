@@ -21,6 +21,11 @@ Mỗi task được thực hiện tuần tự và kết quả được hiển th
 
 ## KẾT QUẢ THỰC HIỆN
 
+![alt text](image-1.png)
+![alt text](image-2.png)
+- Mô hình Bi-RNN (đường xanh lá) cho thấy hiệu suất, tốc độ hội tụ nhanh và tốt hơn so với Simple RNN (đường màu tím).
+
+=> Kiến trúc hai chiều (Bidirectional) giúp mô hình có khả năng nắm bắt ngữ cảnh toàn diện tốt hơn trong bài toán này.
 ### SimpleRNN (Unidirectional)
 - Cấu hình: RNN đơn hướng với hidden_dim=64
 - Độ chính xác trên tập dev: **85.24%**
@@ -29,13 +34,12 @@ Mỗi task được thực hiện tuần tự và kết quả được hiển th
 ### Bidirectional RNN 
 - Cấu hình: RNN hai hướng với hidden_dim=64 -> output_dim=128
 - Độ chính xác trên tập dev: **87.57%**
-- Cải thiện: **+2.6%** so với RNN đơn hướng
+- Cải thiện: **+2.6%** so với RNN
 
 ### Ví dụ dự đoán câu mới:
 - Câu: "The cat is sleeping."
-- Dự đoán với Simple RNN: DET - NOUN - AUX - VERB - PUNCT --> TRUE
+- Dự đoán: DET - NOUN - AUX - VERB - PUNCT --> TRUE
 ![alt text](image.png)
-- Dự đoán với BiRNN: DET - NOUN - AUX - VERB - PUNCT --> TRUE
 
 ## Nhận xét: 
 ### So sánh hiệu suất:
