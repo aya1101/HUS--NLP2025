@@ -23,7 +23,7 @@ Mỗi task được thực hiện tuần tự và kết quả được hiển th
 
 ![alt text](image-1.png)
 ![alt text](image-2.png)
-- Mô hình Bi-RNN (đường xanh lá) cho thấy hiệu suất, tốc độ hội tụ nhanh và tốt hơn so với Simple RNN (đường màu tím).
+- Mô hình Bi-RNN (đường màu xanh lá) cho thấy hiệu suất, tốc độ hội tụ nhanh và tốt hơn so với Simple RNN (đường màu tím).
 
 => Kiến trúc hai chiều (Bidirectional) giúp mô hình có khả năng nắm bắt ngữ cảnh toàn diện tốt hơn trong bài toán này.
 ### SimpleRNN (Unidirectional)
