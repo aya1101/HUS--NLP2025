@@ -1,12 +1,43 @@
-# Lab 5: Phân loại văn bản
+# Lab 4: Phân loại văn bản
 
+## Cấu trúc thư mục
+```
+data/
+├── lab5/
+│   ├── sent_all_cleaned.csv        # Dữ liệu đã gộp và làm sạch
+│   ├── sent_train.csv              # Dữ liệu huấn luyện
+│   └── sent_valid.csv              # Dữ liệu validation
+
+src/
+├── preprocessing/
+│   └── regex_tokenizer.py          # Tokenizer với regex
+├── representations/
+│   └── count_vectoriser.py         # Count vectorizer
+├── model/
+│   └── text_classifier.py         # Text classifier model
+└── spark/
+    └── lab4/
+        └── task3_lab4_sentiment_analysis.py  # PySpark sentiment analysis
+
+test/
+└── lab4/
+    ├── task2_lab4_test.py          # Test cho baseline
+    └── task4_lab4_advanced.py      # Test cho Word2Vec + PySpark
+
+results/
+└── lab4/
+    ├── task1_2_results.txt         # Kết quả baseline
+    ├── task2_train_valid_results.txt
+    ├── task3_lab4_sentiment_analysis_results.txt
+    └── task4.txt                   # Kết quả Word2Vec advanced
+```
 
 ### Các bước triển khai 
 - Chuẩn bị dữ liệu: gộp và làm sạch `sent_train.csv` + `sent_valid.csv` → `sent_all_cleaned.csv`.
 - Tiền xử lý: loại URL/email, xóa ký tự đặc biệt, thu nhỏ chữ, chuẩn hóa khoảng trắng, loại hàng trống.
 - Đặc trưng: CountVectorizer (baseline) hoặc Word2Vec / TF-IDF (nâng cao bằng PySpark).
 - Huấn luyện: LogisticRegression cho baseline; Word2Vec + LogisticRegression/NaiveBayes trên PySpark cho nâng cao.
-- Đánh giá: accuracy, precision/recall, F1, ma trận nhầm lẫn; lưu kết quả vào `results/lab5/`.
+- Đánh giá: accuracy, precision/recall, F1, ma trận nhầm lẫn; lưu kết quả vào `results/lab4/`.
 
 ## Thực hiện
 **Task 1-2**: Pipeline phân loại văn bản sử dụng LogisticRegression
@@ -21,32 +52,32 @@
 - Tiền xử lý: loại URL/email/ký tự đặc biệt bằng Spark SQL (`regexp_replace`), tokenize và loại stopwords bằng `Tokenizer` + `StopWordsRemover`.
 - Biểu diễn: HashingTF → IDF (TF-IDF) để tạo feature vector bằng Spark ML.
 - Mô hình: LogisticRegression (Spark ML) với các tham số điều chỉnh (ví dụ maxIter, regParam).
-- Đánh giá: đo thời gian huấn luyện/đánh giá, tính Accuracy, F1 và ma trận nhầm lẫn; kết quả lưu vào `results/lab5/task3_lab5_sentiment_analysis_results.txt`.
+- Đánh giá: đo thời gian huấn luyện/đánh giá, tính Accuracy, F1 và ma trận nhầm lẫn; kết quả lưu vào `results/lab4/task3_lab4_sentiment_analysis_results.txt`.
 
 **Task 4**: Nâng cao bằng embeddings và mô hình thay thế (Word2Vec + NaiveBayes/LogReg trên PySpark)
 - Dữ liệu: dùng `sent_all_cleaned.csv` (đã gộp và tiền xử lý trước).
 - Tiền xử lý: tiền xử lý tương tự trên Spark (lọc, regex, tokenize, stopwords).
 - Biểu diễn: huấn luyện Word2Vec (Spark ML) để lấy vector trung bình cho mỗi câu; có thể so sánh hoặc kết hợp với TF-IDF.
 - Mô hình: NaiveBayes (Multinomial) và/hoặc LogisticRegression trên feature embedding; xây pipeline đầy đủ với `Pipeline` của Spark ML.
-- Đánh giá: đo thời gian huấn luyện, đánh giá trên tập test, lưu kết quả vào `results/lab5/task4.txt`; so sánh hiệu suất với baseline và phân tích sự khác biệt.
+- Đánh giá: đo thời gian huấn luyện, đánh giá trên tập test, lưu kết quả vào `results/lab4/task4.txt`; so sánh hiệu suất với baseline và phân tích sự khác biệt.
 
 ## Hướng dẫn chạy 
 - Chạy test task 2 (baseline):
 ```powershell
-& ".\.venv\Scripts\python.exe" test\lab5\task2_lab5_test.py
+& ".\.venv\Scripts\python.exe" test\lab4\task2_lab4_test.py
 ```
 
 - Chạy Task 3 (PySpark):
 ```powershell
-& ".\.venv\Scripts\python.exe" src\spark\lab5\task3_lab5_sentiment_analysis.py
+& ".\.venv\Scripts\python.exe" src\spark\lab4\task3_lab4_sentiment_analysis.py
 ```
 
 - Chạy Task 4 (PySpark):
 ```powershell
-& ".\.venv\Scripts\python.exe" test\lab5\task4_lab5_advanced.py
+& ".\.venv\Scripts\python.exe" test\lab4\task4_lab4_advanced.py
 ```
 
-- Kết quả lưu trong `results/lab5/` (ví dụ `task1_2_results.txt`, `task2_train_valid_results.txt`, `task4.txt`).
+- Kết quả lưu trong `results/lab4/` (ví dụ `task1_2_results.txt`, `task2_train_valid_results.txt`, `task4.txt`).
 
 
 ## Kết quả
@@ -55,7 +86,7 @@
   - Accuracy: 0.500
   - F1-score: 0.333
 
-- Mô hình nâng cao (Word2Vec + LogisticRegression, PySpark) — kết quả từ `results/lab5/task4.txt`:
+- Mô hình nâng cao (Word2Vec + LogisticRegression, PySpark) — kết quả từ `results/lab4/task4.txt`:
   - Dữ liệu: 11,927 mẫu (class0=1,789; class1=2,398; class2=7,740)
   - Train/test split: 9,606 / 2,321
   - Accuracy: 0.6682

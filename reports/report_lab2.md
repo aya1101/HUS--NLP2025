@@ -1,4 +1,4 @@
-# Lab 3: Pipeline NLP với PySpark và Tìm kiếm Vector
+# Lab 2: Pipeline NLP với PySpark và Tìm kiếm Vector
 **Nguyễn Thùy Trang - 22000128**
 
 ## 1. Các bước triển khai chi tiết
@@ -13,7 +13,7 @@ pip install pyspark
 ```
 src/
 ├── spark/
-│   └── lab3_pyspark.py # Triển khai pipeline chính
+│   └── lab2_pyspark.py # Triển khai pipeline chính
 data/
 └── c4-train.00000-of-01024-30K.json.gz # Bộ dữ liệu nén
 results/ # Thư mục kết quả đầu ra
