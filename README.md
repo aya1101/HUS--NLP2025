@@ -1,50 +1,82 @@
-# Laboratory Assignments NLP
-Nguyễn Thùy Trang - 22000128
-## ⊠ Các bước triển khai
-1. Cài đặt Python (khuyến nghị >=3.8).
-2. Cài đặt các thư viện cần thiết bằng lệnh:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Đảm bảo các file dữ liệu (UD_English-EWT) đã có trong thư mục dự án.
-4. Kiểm tra lại cấu trúc thư mục:
-   - src/
-   - test/
-   - results/
-   - UD_English-EWT/
-   - requirements.txt
-   - README.md
+# 🔬 Natural Language Processing Laboratory Assignments
+> **Sinh viên:** Nguyễn Thùy Trang - 22000128  
+> **Khóa học:** HUS NLP 2025  
+> **Kho lưu trữ:** [HUS--NLP2025](https://github.com/aya1101/HUS--NLP2025)
 
-## Cách chạy code và ghi log kết quả
-- Để chạy thử nghiệm và ghi log kết quả, sử dụng lệnh:
-  ```bash
-  python -m test.test_lab1 > results/log1.txt
-  python -m test.test_lab2 > results/log2.txt
-  ```
-- Kết quả được ghi vào thư mục `results/` trong thư mục gốc.
+---
 
-##  Giải thích các kết quả thu được và nhận xét:
-- Giải thích kết quả thu được và nhận xét của các lab được tổng hợp trong `results/Notes.md`
+## Tổng quan dự án
 
-### Ví dụ kết quả thực tế
-Toàn bộ kết quả test của các lab được lưu trong trong folder `results/`.
+Tổng hợp các bài thực hành môn **Xử lý Ngôn ngữ Tự nhiên** (NLP) được triển khai từ cơ bản đến nâng cao, bao gồm các kỹ thuật xử lý văn bản, word embeddings, classification, và deep learning.
 
-## Khó khăn gặp phải và cách giải quyết
-- Lỗi đường dẫn ;-;
-## • Model tạo sẵn, prompt
-- Không sử dụng model tạo sẵn ngoài các tokenizer tự cài đặt trong thư mục `src/preprocessing`.
+---
 
-## Chạy PySpark Word2Vec (lab4 task)
+## Cấu trúc dự án
 
-Nếu muốn huấn luyện Word2Vec trên tập dữ liệu lớn bằng PySpark, dùng script sau:
-
-PowerShell (ví dụ):
-```powershell
-& ".\.venv\Scripts\Activate.ps1";
-python src/spark/lab4_task4_pyspark.py --input <path/to/jsonl_or_dir> --field text --output models/word2vec_spark --vectorSize 100 --minCount 5
+```
+📁 HW1_backup/
+├── 📂 src/                    # Source code modules
+│   ├── core/                  # Core interfaces & dataset loaders
+│   ├── preprocessing/         # Text tokenizers & stopwords
+│   ├── representations/       # Vectorizers & embedders
+│   ├── model/                 # ML classifiers
+│   └── spark/                 # PySpark implementations
+├── 📂 test/                   # Unit tests & lab demos
+├── 📂 data/                   # Datasets (UD, sentiment, NLU)
+├── 📂 reports/                # Lab reports & notebooks
+├── 📂 results/                # Experimental outputs
+├── 📂 models/                 # Trained models
+└── 📄 README.md               # Project overview
 ```
 
-Lưu ý:
-- Cài PySpark: `pip install pyspark` trong venv.
-- Trên Windows cần Java (JAVA_HOME) tương thích.
-- Script sẽ ghi log mẫu vào `results/word2vec_sample.txt` và lưu model Spark vào thư mục `models/word2vec_spark`.
+### Nội dung các lab
+
+- **Lab 1 — Tách từ và biểu diễn văn bản bằng vector thưa:** Thực hiện tokenization, normalization, loại bỏ stopwords và tiền xử lý đầu vào. 
+
+- **Lab 2 — Biểu diễn văn bản:** Vector hóa văn bản bằng các phương pháp truyền thống (TF-IDF, Bag-of-Words). 
+
+- **Lab 3 — Word Embeddings:** Huấn luyện và sử dụng embedding (Word2Vec, GloVe) và triển khai trên PySpark cho tập lớn. 
+
+- **Lab 4 — Phân loại văn bản:** Xây dựng và đánh giá các bộ phân loại cho bài toán phân cực cảm xúc. 
+
+- **Lab 5 — RNNs và các bài toán:** Thiết kế mô hình học sâu cho phân tích cảm xúc, huấn luyện và tinh chỉnh mạng nơ-ron. 
+
+- **Lab 6 — Transformers và các bài toán:** Mô hình tuần tự như RNN/LSTM cho phân loại ý định và các bài toán nâng cao khác. 
+
+---
+
+## Cài đặt và triển khai
+
+### Yêu cầu hệ thống
+- **Python:** >= 3.8
+- **RAM:** 8GB+ (cho word embeddings)
+- **Storage:** 3GB+ (models + datasets)
+- **OS:** Windows/Linux/macOS
+
+### Bước 1: Cài đặt môi trường
+```bash
+# Clone repository
+git clone https://github.com/aya1101/HUS--NLP2025.git
+cd HW
+
+# Tạo virtual environment (khuyến nghị)
+python -m venv .venv
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+# Linux/macOS
+source .venv/bin/activate
+
+# Cài đặt dependencies
+pip install -r requirements.txt
+```
+
+### Bước 2: Kiểm tra cấu trúc
+```bash
+# Verify project structure
+ls src/ test/ data/ results/
+```
+
+---
+
+## Hướng dẫn chạy code
+Chạy code theo hướng dẫn trong từng report.

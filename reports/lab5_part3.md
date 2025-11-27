@@ -1,9 +1,9 @@
-# Lab 6 - Part 3: POS Tagging với SimpleRNN
+# Lab 5 - Part 3: POS Tagging với SimpleRNN
 
 ## Source code
-- **File thực thi**: `src\lab6\lab6_part3.ipynb`  
-- **logs**: `src\lab6\runs\`
-- **model**: `src\lab6\pos_tagger_model.pth`
+- **File thực thi**: `notebooks\lab5\lab5_part3.ipynb`  
+- **logs**: `notebooks\lab5\runs\`
+- **model**: `notebooks\lab5\pos_tagger_model.pth`
 - **Cấu trúc notebook**:
     + **Task 1**: Tiền xử lý dữ liệu Universal Dependencies English-EWT và xây dựng từ điển
     + **Task 2**: Tạo PyTorch Dataset và DataLoader
@@ -24,7 +24,6 @@ Mỗi task được thực hiện tuần tự và kết quả được hiển th
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 - Mô hình Bi-RNN (đường màu xanh lá) cho thấy hiệu suất, tốc độ hội tụ nhanh và tốt hơn so với Simple RNN (đường màu tím).
-
 => Kiến trúc hai chiều (Bidirectional) giúp mô hình có khả năng nắm bắt ngữ cảnh toàn diện tốt hơn trong bài toán này.
 ### SimpleRNN (Unidirectional)
 - Cấu hình: RNN đơn hướng với hidden_dim=64

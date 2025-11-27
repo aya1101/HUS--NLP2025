@@ -1,7 +1,7 @@
-# Lab 6 - Part 2: So sánh các phương pháp phân loại Intent
+# Lab 5 - Part 2: So sánh các phương pháp phân loại
 
 ## Source code
-- **File thực thi**: `src\lab6\lab6_part2.ipynb`  
+- **File thực thi**: `notebooks\lab5\lab5_part2.ipynb`  
 - **Cấu trúc notebook**:
     + **Task 0** (Cell 1-6): Thiết lập môi trường, giải nén và load dữ liệu HWU
     + **Task 1** (Cell 7-9): TF-IDF + Logistic Regression (baseline)
@@ -42,8 +42,8 @@ Mỗi task được thực hiện tuần tự và kết quả được hiển th
 
 ## Bảng so sánh kết quả định lượng
 
-| Phương pháp              |   Accuracy    |   Loss   |  Macro F1-Score   |  Weighted F1-Score |
-|------------------------------|---------------|----------|-------------------|---------------------|
+| Phương pháp              |   Accuracy    |   Loss   |  Macro F1-Score   |  Weighted F1-Score  |
+|--------------------------|---------------|----------|-------------------|---------------------|
 | TF-IDF + LogReg          | 0.8589        | 0.9800   | 0.8251            | 0.8567              |
 | Word2Vec + Dense NN      | 0.5600        | N/A      | 0.5100            | 0.5400              |
 | Pre-trained W2V + LSTM   | 0.2730        | 2.6828   | 0.2300            | 0.2400              |
