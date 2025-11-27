@@ -1,9 +1,9 @@
 # Lab 5 - Part 3: POS Tagging với SimpleRNN
 
 ## Source code
-- **File thực thi**: `src\lab5\lab5_part3.ipynb`  
-- **logs**: `src\lab5\runs\`
-- **model**: `src\lab5\pos_tagger_model.pth`
+- **File thực thi**: `notebooks\lab5\lab5_part3.ipynb`  
+- **logs**: `notebooks\lab5\runs\`
+- **model**: `notebooks\lab5\pos_tagger_model.pth`
 - **Cấu trúc notebook**:
     + **Task 1**: Tiền xử lý dữ liệu Universal Dependencies English-EWT và xây dựng từ điển
     + **Task 2**: Tạo PyTorch Dataset và DataLoader

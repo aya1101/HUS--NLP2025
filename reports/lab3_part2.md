@@ -1,4 +1,4 @@
-# Lab 4: Word Embeddings & Word2Vec
+# Lab 3 - Part 2: Word Embeddings & Word2Vec
 **Nguyễn Thùy Trang - 22000128**
 
 ## 1. Các bước triển khai chi tiết
@@ -13,17 +13,17 @@ pip install -r requirements.txt
 ```
 src/
 ├── core/
-│   ├── Lab4_22000128_Nguyễn_Thùy_Trang.ipynb # Pretrainedd model -- Task 1&2
+│   ├── Lab3_22000128_Nguyễn_Thùy_Trang.ipynb # Pretrainedd model -- Task 1&2
 ├── representations/
 │   ├── word_embedder.py        # Wrapper cho gensim pretrained models -- Task 3
 │   └── document_embedder.py    # Document embedding (mean of word vectors) -- Task 3
 └── spark/
-    └── lab4_task4_pyspark.py   # PySpark MLlib Word2Vec training -- Task 4
+    └── lab3_task4_pyspark.py   # PySpark MLlib Word2Vec training -- Task 4
 
-test/lab4/
-├── lab4_test.py                      # Test gensim pretrained model (GloVe) 
+test/lab3/
+├── lab3_test.py                      # Test gensim pretrained model (GloVe) 
 ├── run_word2vec_tests.py             # Train & test gensim local Word2Vec --Task 3
-├── lab4_run_all_tests.py             # Chạy tất cả tests, lưu log4.txt
+├── lab3_run_all_tests.py             # Chạy tất cả tests, lưu log4.txt
 ├── visualize_embeddings.py           # Visualize pretrained embeddings (2D+3D) -- Task 5
 └── visualize_trained_embeddings.py   # Visualize trained model (2D+3D, by category) --- Task 5
 
@@ -68,7 +68,7 @@ results/
 ### 1.3 Training Word2Vec
 
 #### **Bước 3: Gensim Local Training**
-**File**: `test/lab4/run_word2vec_tests.py`
+**File**: `test/lab3/run_word2vec_tests.py`
 
 **Quy trình**:
 1. Load C4 dataset (30,000 documents từ file JSON Lines)
@@ -91,7 +91,7 @@ results/
 - Top-5 similar words với similarity scores
 
 #### **Bước 4: PySpark Distributed Training**
-**File**: `src/spark/lab4_task4_pyspark.py`
+**File**: `src/spark/lab3_task4_pyspark.py`
 
 **Quy trình**:
 1. Khởi tạo SparkSession với local master
@@ -117,7 +117,7 @@ results/
 ### 1.4 Evaluation và Analysis
 
 #### **Bước 5: Test pretrained models**
-**File**: `test/lab4/lab4_test.py`
+**File**: `test/lab3/lab3_test.py`
 
 **Test cases**:
 1. **Load model**: Load GloVe pretrained và đo thời gian
@@ -133,7 +133,7 @@ results/
 
 #### **Bước 6: Trực quan hóa Embeddings**
 
-**File 1**: `test/lab4/visualize_embeddings.py` (Pretrained model)
+**File 1**: `test/lab3/visualize_embeddings.py` (Pretrained model)
 - Load GloVe pretrained
 - Visualize top 100 từ thường gặp
 - PCA 2D: Giảm 50D → 2D
@@ -141,7 +141,7 @@ results/
 - Plot side-by-side trong cùng 1 hình
 - Output: `results/embedding_visualization.png`
 
-**File 2**: `test/lab4/visualize_trained_embeddings.py` (Trained model)
+**File 2**: `test/lab3/visualize_trained_embeddings.py` (Trained model)
 - Train Word2Vec trên C4 dataset
 - Chọn từ theo categories (Technology, Science, Business, Politics, Common)
 - PCA 2D và 3D với color coding theo category
@@ -157,7 +157,7 @@ results/
 ### 1.5 Automated Testing và Reporting
 
 #### **Bước 7: Test runner tổng hợp**
-**File**: `test/lab4/lab4_run_all_tests.py`
+**File**: `test/lab3/lab3_run_all_tests.py`
 
 **Workflow**:
 1. **Test 1**: Pretrained GloVe model (load, vector, similarity)
@@ -243,5 +243,5 @@ internet: 0.8060
 ```bash
 pip install -r requirements.txt
 ```
-- Task 1 + 2: run file `src/core/Lab4_22000128_Nguyễn_Thùy_Trang.ipynb`  (Pretrained model)
-- Task 3 + 4 + 5: run file `test/lab4/lab4_run_all_tests.py` (Local trained & spark & visualization)
+- Task 1 + 2: run file `src/core/lab3_22000128_Nguyễn_Thùy_Trang.ipynb`  (Pretrained model)
+- Task 3 + 4 + 5: run file `test/lab3/lab3_run_all_tests.py` (Local trained & spark & visualization)
