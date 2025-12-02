@@ -23,7 +23,8 @@ Tổng hợp các bài thực hành môn **Xử lý Ngôn ngữ Tự nhiên** (N
 │   └── spark/                 # PySpark implementations
 ├── 📂 test/                   # Unit tests & lab demos
 ├── 📂 data/                   # Datasets (UD, sentiment, NLU)
-├── 📂 reports/                # Lab reports & notebooks
+├── 📂 reports/                # Lab reports 
+├── 📂 notebooks/              # notebooks thực thi code đơn giản
 ├── 📂 results/                # Experimental outputs
 ├── 📂 models/                 # Trained models
 └── 📄 README.md               # Project overview
